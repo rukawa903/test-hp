@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rukawa - Vocal Mix / Mastering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #ffffff;
+        color: #2d3748;
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+        overflow: hidden;
+    }
+    
+    .sound-wave {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        opacity: 0.1;
+    }
+    
+    .wave-line {
+        width: 2px;
+        background: #8b5cf6;
+        border-radius: 1px;
+    }
+    
+    .hero-content {
+        text-align: center;
+        z-index: 10;
+        padding: 2rem;
+        max-width: 800px;
+    }
+    
+    .profile-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        border: 4px solid #8b5cf6;
+        box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #1e293b;
+        letter-spacing: 2px;
+    }
+    
+    .hero .tagline {
+        font-size: 1.4rem;
+        color: #8b5cf6;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        color: #64748b;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .cta-button {
+        padding: 1rem 2.5rem;
+        background: #8b5cf6;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .cta-button:hover {
+        background: #7c3aed;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    }
+    
+    .cta-button.secondary {
+        background: white;
+        color: #8b5cf6;
+        border: 2px solid #8b5cf6;
+    }
+    
+    .cta-button.secondary:hover {
+        background: #f5f3ff;
+    }
+    
+    /* Pricing Section */
+    .pricing {
+        padding: 5rem 2rem;
+        background: #ffffff;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #1e293b;
+        font-weight: 700;
+    }
+    
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .price-card {
+        background: #f8fafc;
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+    
+    .price-card:hover {
+        transform: translateY(-5px);
+        border-color: #8b5cf6;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    }
+    
+    .price-card h3 {
+        font-size: 1.5rem;
+        color: #8b5cf6;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+    }
+    
+    .delivery {
+        color: #64748b;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Services Section */
+    .services {
+        padding: 5rem 2rem;
+        background: #f8fafc;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .service-item {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+    
+    .service-item:hover {
+        border-color: #8b5cf6;
+        box-shadow: 0 5px 20px rgba(139, 92, 246, 0.1);
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .service-item h3 {
+        font-size: 1.2rem;
+        color: #8b5cf6;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+    
+    .service-item p {
+        color: #64748b;
+        font-size: 0.95rem;
+    }
+    
+    /* Options Section */
+    .options {
+        padding: 5rem 2rem;
+        background: #ffffff;
+    }
+    
+    .options-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    .option-card {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 4px solid #8b5cf6;
+        transition: all 0.3s ease;
+    }
+    
+    .option-card:hover {
+        box-shadow: 0 5px 20px rgba(139, 92, 246, 0.15);
+    }
+    
+    .option-card h3 {
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    
+    .option-price {
+        color: #8b5cf6;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .option-card p {
+        color: #64748b;
+        font-size: 0.95rem;
+    }
+    
+    /* Process Section */
+    .process {
+        padding: 5rem 2rem;
+        background: #f8fafc;
+    }
+    
+    .process-steps {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .step {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        align-items: flex-start;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        border: 2px solid #e2e8f0;
+    }
+    
+    .step-number {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background: #8b5cf6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+    }
+    
+    .step-content h3 {
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    
+    .step-content p {
+        color: #64748b;
+    }
+    
+    /* Tools Section */
+    .tools {
+        padding: 5rem 2rem;
+        background: #ffffff;
+        text-align: center;
+    }
+    
+    .tools-list {
+        max-width: 600px;
+        margin: 2rem auto 0;
+        color: #64748b;
+        text-align: left;
+        background: #f8fafc;
+        padding: 2.5rem;
+        border-radius: 15px;
+        border: 2px solid #e2e8f0;
+    }
+    
+    .tools-list p {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+    
+    .tools-list p:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #8b5cf6;
+    }
+    
+    /* Contact Section */
+    .contact {
+        padding: 5rem 2rem;
+        background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+        text-align: center;
+    }
+    
+    .contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #1e293b;
+        font-weight: 700;
+    }
+    
+    .contact p {
+        font-size: 1.2rem;
+        color: #64748b;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .contact-button {
+        padding: 1rem 2.5rem;
+        background: white;
+        color: #8b5cf6;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(139, 92, 246, 0.2);
+    }
+    
+    .contact-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+    
+    /* Footer */
+    footer {
+        padding: 2rem;
+        text-align: center;
+        background: #f8fafc;
+        color: #64748b;
+    }
+    
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .step {
+            flex-direction: column;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="sound-wave" id="soundWave"></div>
+        <div class="hero-content">
+            <img src="https://prd.resource-api.lit.link/images/creators/01f3d8c6-3a18-42f2-a9eb-1868698be0e9/35352ad7-c89f-42c3-a63a-308396b9472a.jpeg" alt="rukawa" class="profile-image">
+            <h1>rukawa</h1>
+            <p class="tagline">Vocal Mix / Mastering</p>
+            <p>カバーからオリジナル曲まで、様々なジャンルのMixを手掛けております。<br>Mix依頼が初めての方大歓迎です。お気軽にご連絡下さい</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Mix依頼をする</a>
+                <a href="#pricing" class="cta-button secondary">料金を見る</a>
+            </div>
+        </div>
+    </section>
+
+```
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">料金プラン</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>フルコーラス</h3>
+                <div class="price">¥3,000</div>
+                <div class="delivery">納期：14日</div>
+                <p style="color: #64748b; margin-bottom: 1rem;">フル尺の楽曲向け</p>
+            </div>
+            <div class="price-card">
+                <h3>ワンコーラス</h3>
+                <div class="price">¥2,000</div>
+                <div class="delivery">納期：7〜14日</div>
+                <p style="color: #64748b; margin-bottom: 1rem;">1番のみの楽曲向け</p>
+            </div>
+            <div class="price-card">
+                <h3>Short Mix</h3>
+                <div class="price">¥1,000</div>
+                <div class="delivery">納期：5〜7日</div>
+                <p style="color: #64748b; margin-bottom: 1rem;">1分以内の短尺動画に最適</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">作業内容</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-icon">🎵</div>
+                <h3>ノイズ処理</h3>
+                <p>不要なノイズを除去</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">✨</div>
+                <h3>Edit</h3>
+                <p>ピッチ・タイミング補正</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🎚️</div>
+                <h3>Mixing</h3>
+                <p>音のバランス調整</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">🎼</div>
+                <h3>ハモリ生成</h3>
+                <p>ハーモニーの作成</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">💎</div>
+                <h3>Mastering</h3>
+                <p>最終的な音質調整</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">📦</div>
+                <h3>エンコード</h3>
+                <p>配信用ファイル作成</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Options Section -->
+<section class="options">
+    <div class="container">
+        <h2 class="section-title">追加オプション</h2>
+        <div class="options-grid">
+            <div class="option-card">
+                <h3>コラボ対応</h3>
+                <div class="option-price">+¥1,000 / 人</div>
+                <p>例：二人コラボ (+2000円)、三人コラボ(+3000円)</p>
+            </div>
+            <div class="option-card">
+                <h3>スピード便</h3>
+                <div class="option-price">+¥3,000</div>
+                <p>納期：7日で納品</p>
+            </div>
+            <div class="option-card">
+                <h3>エクストリーム便</h3>
+                <div class="option-price">+¥5,000</div>
+                <p>納期：3日で納品</p>
+            </div>
+            <div class="option-card">
+                <h3>カットアップ加工</h3>
+                <div class="option-price">+¥1,000 / 5秒</div>
+                <p>トレンド感のあるカット編集</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process">
+    <div class="container">
+        <h2 class="section-title">依頼の流れ</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>音源確認</h3>
+                    <p>wav形式のボーカル音源をzipファイルにまとめてお送りください（ギガファイル便、Dropbox、Googleドライブ等）</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>ヒアリング</h3>
+                    <p>音源確認後、Mixの完成イメージをお聞きします。お任せでも構いません。参考音源があればお送りください。</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Mix作業開始</h3>
+                    <p>プロの技術で丁寧にミキシング作業を行います。</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>確認と修正</h3>
+                    <p>完成した仮Mix音源を聴いていただき、修正点があればお伝え下さい。修正回数は無制限です。</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>納品</h3>
+                    <p>エンコードをご希望の際は音源完成後に着手いたします。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools Section -->
+<section class="tools">
+    <div class="container">
+        <h2 class="section-title">使用機材・ソフト</h2>
+        <div class="tools-list">
+            <p><strong>DAW:</strong> Studio One 6 Professional</p>
+            <p><strong>プラグイン:</strong></p>
+            <p>Melodyne 6</p>
+            <p>Waves</p>
+            <p>Universal Audio Digital</p>
+            <p>iZotope</p>
+            <p>VoosteQ etc...</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2>まずはお気軽にご相談ください</h2>
+        <p>○録音方法が分からない<br>○wav形式にする方法が分からない etc…<br>そんなお悩みも解決に向けてお手伝いします！</p>
+        <div class="contact-buttons">
+            <a href="https://docs.google.com/forms/d/1Rkf_H90-QiG73yNAk37mVVX8SM4R88Zt3enbUQL7HWM/viewform" class="contact-button" target="_blank">依頼フォーム</a>
+            <a href="mailto:rukawamwork@gmail.com" class="contact-button">メールで相談</a>
+            <a href="https://x.com/rukawa_mix?s=21" class="contact-button" target="_blank">X</a>
+            <a href="https://marshmallow-qa.com/zvepay6pur1rm9f" class="contact-button" target="_blank">質問箱</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 1rem;">法人様はメールからご連絡ください</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 rukawa. All rights reserved.</p>
+</footer>
+
+<script>
+    // Generate static sound wave
+    const soundWave = document.getElementById('soundWave');
+    const heights = [30, 50, 40, 70, 55, 45, 65, 50, 40, 60, 45, 55, 50, 70, 40, 60, 50, 45, 65, 55, 40, 50, 60, 45, 70, 50, 55, 40, 65, 50, 45, 60, 55, 50, 70, 45, 40, 55, 60, 50, 45, 65, 55, 40, 70, 50, 60, 45, 55, 50, 40, 65, 55, 70, 50, 45, 60, 50, 55, 40, 65, 50, 70, 45, 60, 55, 40, 50, 65, 55, 45, 70, 50, 60, 40, 55, 50, 65, 45, 70, 55, 50, 40, 60, 50, 55, 45, 65, 50, 70, 40, 60, 55, 50, 45, 65, 55, 40, 70, 50, 60, 45, 55, 50, 40, 65, 55, 70, 50, 45, 60, 50, 55, 40, 65, 50, 70, 45, 60, 55];
+    
+    for (let i = 0; i < 120; i++) {
+        const line = document.createElement('div');
+        line.className = 'wave-line';
+        line.style.height = `${heights[i]}px`;
+        soundWave.appendChild(line);
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+```
+
+</body>
+</html>
