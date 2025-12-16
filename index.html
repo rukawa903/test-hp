@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>rukawa | Vocal Mix / Mastering</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <title>rukawa - Vocal Mix / Mastering</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts（使わないなら削除OK） -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ★ CSSファイルの指定（ここが正解） -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- HERO -->
+  <!-- Hero Section -->
   <section class="hero">
     <h1>rukawa</h1>
-    <p class="subtitle">Vocal Mix / Mastering</p>
+    <p class="tagline">Vocal Mix / Mastering</p>
     <p class="description">
       カバーからオリジナル曲まで、様々なジャンルのMixを手掛けております。<br>
-      Mix依頼が初めての方大歓迎です。
+      Mix依頼が初めての方も大歓迎です。
     </p>
 
-    <div class="links">
-      <a href="https://twitter.com/rukawa_sub" target="_blank">X</a>
-      <a href="https://youtube.com/@rukawa-mixzunda" target="_blank">YouTube</a>
+    <div class="buttons">
+      <a href="#contact" class="button">Mix依頼をする</a>
+      <a href="#pricing" class="button secondary">料金を見る</a>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="section">
+  <!-- Pricing Section -->
+  <section id="pricing" class="section">
     <h2>料金プラン</h2>
 
     <div class="cards">
@@ -53,21 +55,26 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section contact">
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
     <h2>お問い合わせ</h2>
 
-    <a class="button" href="https://docs.google.com/forms/d/1Rkf_H90-QiG73yNAk37mVVX8SM4R88Zt3enbUQL7HWM/viewform" target="_blank">
+    <a
+      href="https://docs.google.com/forms/d/1Rkf_H90-QiG73yNAk37mVVX8SM4R88Zt3enbUQL7HWM/viewform"
+      target="_blank"
+      class="button"
+    >
       依頼フォーム
     </a>
 
-    <a class="button outline" href="mailto:rukawamwork@gmail.com">
+    <a href="mailto:rukawamwork@gmail.com" class="button secondary">
       メールで相談
     </a>
   </section>
 
+  <!-- Footer -->
   <footer>
-    © 2025 rukawa
+    <p>&copy; 2025 rukawa. All rights reserved.</p>
   </footer>
 
 </body>
