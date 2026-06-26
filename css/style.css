@@ -2,100 +2,157 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
   background: linear-gradient(#eef6ff, #f8fbff);
   color: #1e293b;
-  line-height: 1.7;
-}
-
-/* HERO */
-.hero {
   min-height: 100vh;
+  touch-action: none;
+}
+
+/* ---- 画面切り替え ---- */
+.screen {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+.screen.active {
+  display: flex;
+}
+
+/* ---- タイトル画面 ---- */
+#title-screen {
+  justify-content: center;
+}
+.title-box {
   text-align: center;
-  padding: 120px 20px;
+  padding: 30px;
 }
-
-.hero h1 {
-  font-size: 4rem;
+.title-box h1 {
+  font-size: 2.6rem;
   font-weight: 900;
+  color: #2563eb;
 }
-
-.subtitle {
-  font-size: 1.5rem;
-  color: #3b82f6;
-  margin: 10px 0;
-}
-
-.description {
-  max-width: 600px;
-  margin: 20px auto;
+.title-box .tagline {
+  margin: 12px 0 32px;
   color: #475569;
 }
 
-.links a {
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 600;
+/* ---- HUD ---- */
+.hud {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+}
+.hud-item {
+  font-size: 0.95rem;
+  color: #334155;
+}
+.hud-item b {
   color: #2563eb;
 }
 
-/* SECTIONS */
-.section {
-  padding: 100px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-/* CARDS */
-.cards {
+/* ---- 盤面 ---- */
+.board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: auto;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  width: min(94vw, 460px);
+  aspect-ratio: 1 / 1;
+  background: #dbeafe;
+  padding: 6px;
+  border-radius: 14px;
+  margin: 4px auto;
+}
+.cell {
+  background: #f1f5f9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.tile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(18px, 5.5vw, 30px);
+  line-height: 1;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+  cursor: grab;
+  touch-action: none;
+}
+.tile .lv {
+  font-size: 9px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+.tile.dragging {
+  opacity: 0.35;
+}
+.cell.drop-target {
+  outline: 2px dashed #2563eb;
+  outline-offset: -2px;
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  border: 1px solid #e5e7eb;
+/* ドラッグ中に指/カーソルを追従するゴースト */
+#drag-ghost {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.price {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2563eb;
+/* ---- フッター操作 ---- */
+.controls {
+  padding: 18px;
 }
 
-/* BUTTONS */
-.button {
-  display: inline-block;
-  margin: 10px;
-  padding: 15px 30px;
+/* ---- ボタン ---- */
+.btn {
+  border: none;
   border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn.primary {
   background: #2563eb;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 1.05rem;
 }
-
-.button.outline {
-  background: transparent;
-  border: 2px solid #2563eb;
-  color: #2563eb;
+.btn.primary:active {
+  background: #1d4ed8;
 }
-
-/* FOOTER */
-footer {
-  padding: 40px;
-  text-align: center;
-  color: #64748b;
+.btn.small {
+  background: #e2e8f0;
+  color: #334155;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
